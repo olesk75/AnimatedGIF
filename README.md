@@ -19,7 +19,7 @@ Example usage
   	
   		...
     
-    rotating_logo.stop = True  # Setting stop flag, which ends the animation
+    rotating_logo.stop()  # Setting stop flag, which ends the animation
 ```
 
 I made this after seeing a whole lot of questions on how to do this, but no real working solutions that allows
