@@ -1,5 +1,4 @@
-AnimatedGIF - a class for showing animated GIFs
-========================
+AnimatedGIF - a Python class for displaying animated GIFs
 
 A very simple class (subclass of tkinter.Label) that displays an animated GIF in 
 a label and runs the animation in a separate thread. Written in Python3 but should work
