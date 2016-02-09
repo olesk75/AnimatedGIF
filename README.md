@@ -2,8 +2,8 @@ AnimatedGIF - a class for showing animated GIFs
 ========================
 
 A very simple class (subclass of tkinter.Label) that displays an animated GIF in 
-a label and runs the animation in a separate thread. Written in Python 3.4, but should 
-work for all 3.x version, and 2.x with a minor rewrite.
+a label and runs the animation in a separate thread. Written in Python 3 but should work
+for 2.x (untested).
 
 This allows using animated GIFs together with a normal mainloop() without blocking.
 
@@ -14,7 +14,7 @@ Example usage
     from AnimatedGIF import *
   
     rotating_logo = AnimatedGIF(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
-  	rotating_logo.pack(fill=tk.BOTH)  # Packing the label with the animated gif (grid works just as well)
+  	rotating_logo.pack()  # Packing the label with the animated gif (grid works just as well)
   	rotating_logo.start()  # Spawn thread which updates animation
   	
   		...
@@ -24,3 +24,5 @@ Example usage
 
 I made this after seeing a whole lot of questions on how to do this, but no real working solutions that allows
 for usage together with mainloop(), which I guess a lot of people, myself included, need.
+
+If you test this with python 2.x, let me know if it works ;)
