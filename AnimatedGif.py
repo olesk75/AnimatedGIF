@@ -29,24 +29,24 @@ class AnimatedGif(tk.Label):
 		"""
 		tk.Label.__init__(self, root)
 		self.gif_file = gif_file
-		self.delay = delay  # Animation delay - try low floats, like 0.04
-
-		self._num = 0
-		self.animation_thread = Thread()
+		self.delay = delay  # Animation delay - try low floats, like 0.04 (depends on the gif in question)
 		self.stop = False  # Thread exit request flag
 
+		self._num = 0
+		self._animation_thread = Thread()
+
 	def start(self):
-		self.animation_thread = Thread(target=self._animate).start()
+		self._animation_thread = Thread(target=self._animate).start()  # Forks a thread for the animation
 
 	def stop(self):
 		self.stop = True
 
 	def _animate(self):
-		while self.stop is False:
+		while self.stop is False:  # Normally this would block mainloop(), but not here, as this runs in separate thread
 			try:
 				time.sleep(self.delay)
-				self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index {}'.format(self._num))
+				self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index {}'.format(self._num))  # Looping through the frames
 				self.configure(image=self.gif)
 				self._num += 1
-			except tk.TclError:
+			except tk.TclError:  # When we try a frame that doesn't exist, we know we have to start over from zero
 				self._num = 0
