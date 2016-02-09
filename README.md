@@ -8,7 +8,7 @@ for Python2 as well (untested).
 This allows using animated GIFs together with a normal tkinter mainloop() without blocking.
 Perfect for showing small animated "please wait"/"working"/"downloading" icons while doing other tasks.
 
-Example usage
+Example usage:
 
 ```python
 
