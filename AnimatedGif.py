@@ -1,4 +1,4 @@
-""" AnimatedGIF - a
+""" AnimatedGIF - a class to show an animated gif without blocking the tkinter mainloop()
 
 Copyright (c) 2016 Ole Jakob Skjelten <olesk@pvv.org>
 
