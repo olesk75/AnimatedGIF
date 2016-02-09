@@ -11,7 +11,6 @@ Example usage
 
 ```python
 
-    import records
     from AnimatedGIF import *
   
     rotating_logo = AnimatedGIF(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
