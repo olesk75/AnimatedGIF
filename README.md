@@ -23,7 +23,7 @@ Example usage:
     rotating_logo.stop()  # Setting stop flag, which ends the animation
 ```
 
-I made this after seeing a whole lot of questions on how to do this, but no real working solutions that allows
+I made this after seeing a whole lot of questions on StackExchange on how to do this, but no real working solutions that allows
 for usage together with mainloop(), which I guess a lot of people, myself included, need.
 
-If you test this with python 2.x, let me know if it works ;)
+If you test this with Python2, let me know if it works ;)
