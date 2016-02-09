@@ -38,6 +38,9 @@ class AnimatedGif(tk.Label):
 	def start(self):
 		self.animation_thread = Thread(target=self._animate).start()
 
+	def stop(self):
+		self.stop = True
+
 	def _animate(self):
 		while self.stop is False:
 			try:
