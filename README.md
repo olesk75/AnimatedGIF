@@ -13,9 +13,9 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
 
     from AnimatedGIF import *
   
-    rotating_logo = AnimatedGIF(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
-  	rotating_logo.pack()  # Packing the label with the animated gif (grid works just as well)
-  	rotating_logo.start()  # Spawn thread which updates animation
+    lbl_with_rotating_logo = AnimatedGIF(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
+  	lbl_with_rotating_logo.pack()  # Packing the label with the animated gif (grid works just as well)
+  	lbl_with_rotating_logo.start()  # Spawn thread which updates animation
   	
   		...
     
