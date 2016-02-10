@@ -17,10 +17,8 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
   	lbl_with_my_gif.pack()  # Packing the label with the animated gif (grid works just as well)
   	lbl_with_my_gif.start()  # Shows gif at first frame and we are ready to go
   	lbl_with_my_gif.update()  # Starts update loop - you only have to call this once
-  	
   		...
-    
-    rotating_logo.stop()  # Setting stop flag, which ends the update loop (animation)
+    lbl_with_my_gif.stop()  # Setting stop flag, which ends the update loop (animation)
 ```
 
 ######Example usage (threading):
@@ -32,10 +30,8 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
     lbl_with_my_gif = AnimatedGIF(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
   	lbl_with_my_gif.pack()  # Packing the label with the animated gif (grid works just as well)
   	lbl_with_my_gif.start_thread()  # Spawn thread which updates animation
-  	
   		...
-    
-    rotating_logo.stop_thread()  # Setting stop flag, which ends the animation
+    lbl_with_my_gif.stop_thread()  # Setting stop flag, which ends the animation
 ```
 
 I made this after seeing a whole lot of questions on StackExchange on how to do this, but no real working solutions that allows
