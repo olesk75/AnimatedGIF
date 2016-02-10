@@ -35,9 +35,7 @@ class AnimatedGif(tk.Label):
 	def start(self):
 		""" Starts non-threaded version that we need to manually update() """
 		self.start_time = time.time()  # Starting timer
-		self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index 0')
-		self.configure(image=self.gif)
-		self._num = 1  # We show the first frame when we start(), so when we animate the next frame is 1, not 0
+		self.update()
 
 	def stop(self):
 		""" This stops the after loop that runs the animation, if we are using the after() approach """
