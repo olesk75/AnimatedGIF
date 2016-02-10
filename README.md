@@ -8,7 +8,7 @@ for Python2 as well (untested).
 This allows using animated GIFs together with a normal tkinter mainloop() without blocking.
 Perfect for showing small animated "please wait"/"working"/"downloading" icons while doing other tasks.
 
-Example usage:
+######Example usage:
 
 ```python
 
@@ -28,8 +28,10 @@ for usage together with mainloop(), which I guess a lot of people, myself includ
 
 If you test this with Python2, let me know if it works ;)
 
-==Known issues
-If you get the "RuntimeError: main thread is not in main loop" error, you're experiencing a [known problem with Tkinter] (http://stackoverflow.com/questions/14694408/runtimeerror-main-thread-is-not-in-main-loop). Unfortunately, Tkinter is not really thread safe. You can replace Tkinter with [mtTkinter](http://tkinter.unpythonic.net/wiki/mtTkinter), but in my experience, whether or not this becomes a problem waries from case to case. It seems that if your gif animation thread makes the main Tkinter thread time out, this error occurs.
+##Known issues
 
-==Future work
+If you get the `"RuntimeError: main thread is not in main loop"` error, you're experiencing a [known problem with Tkinter] (http://stackoverflow.com/questions/14694408/runtimeerror-main-thread-is-not-in-main-loop). Unfortunately, Tkinter is not really thread safe. You can replace Tkinter with [mtTkinter](http://tkinter.unpythonic.net/wiki/mtTkinter), but in my experience, whether or not this becomes a problem waries from case to case. It seems that if your gif animation thread makes the main Tkinter thread time out, this error occurs.
+
+##Future work
+
 Obviously, the Tkinter error is a big issue in many cases, so an alternative implementation is needed. Suggestions are welcome.
