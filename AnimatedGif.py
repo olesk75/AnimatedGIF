@@ -35,13 +35,13 @@ class AnimatedGif(tk.Label):
 	def start(self):
 		""" Starts non-threaded version that we need to manually update() """
 		self.start_time = time.time()  # Starting timer
-		self.update()
+		self._animate()
 
 	def stop(self):
 		""" This stops the after loop that runs the animation, if we are using the after() approach """
 		self.stop = True
 
-	def update(self):
+	def _animate(self):
 		try:
 			self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index {}'.format(self._num))  # Looping through the frames
 			self.configure(image=self.gif)
@@ -49,7 +49,7 @@ class AnimatedGif(tk.Label):
 		except tk.TclError:  # When we try a frame that doesn't exist, we know we have to start over from zero
 			self._num = 0
 		if not self.stop:    # If the stop flag is set, we don't repeat
-			self.root.after(int(self.delay*1000), self.update)
+			self.root.after(int(self.delay*1000), self._animate)
 
 	def start_thread(self):
 		""" This starts the thread that runs the animation, if we are using a threaded approach """
