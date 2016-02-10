@@ -7,6 +7,7 @@ for Python2 as well (untested).
 This allows using animated GIFs together with a normal tkinter mainloop() without blocking, but with caveats (see below)
 Perfect for showing small animated "please wait"/"working"/"downloading" icons while doing other tasks.
 
+*I recommend trying the non-threaded approach first. If you have stuttering in your animation, try the threaded approach*
 ######Example usage (no threads):
 
 ```python
