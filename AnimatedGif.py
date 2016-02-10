@@ -6,14 +6,11 @@ Released under the terms of the GNU General Public License, version 3
 (https://gnu.org/licenses/gpl.html)
 
 """
-from threading import Thread
 import time
 try:
-	# for Python2
-	import Tkinter as tk
+	import Tkinter as tk  # for Python2
 except ImportError:
-	# for Python3
-	import tkinter as tk
+	import tkinter as tk  # for Python3
 
 
 class AnimatedGif(tk.Label):
@@ -28,20 +25,41 @@ class AnimatedGif(tk.Label):
 		:param delay: delay between frames in the gif animation (float)
 		"""
 		tk.Label.__init__(self, root)
+		self.root = root
 		self.gif_file = gif_file
 		self.delay = delay  # Animation delay - try low floats, like 0.04 (depends on the gif in question)
 		self.stop = False  # Thread exit request flag
 
 		self._num = 0
-		self._animation_thread = Thread()
 
 	def start(self):
-		self._animation_thread = Thread(target=self._animate).start()  # Forks a thread for the animation
+		""" Starts non-threaded version that we need to manually update() """
+		self.start_time = time.time()  # Starting timer
+		self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index 0')
+		self.configure(image=self.gif)
+		self._num = 1  # We show the first frame when we start(), so when we animate the next frame is 1, not 0
 
-	def stop(self):
+	def update(self):
+		try:
+			self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index {}'.format(self._num))  # Looping through the frames
+			self.configure(image=self.gif)
+			self._num += 1
+		except tk.TclError:  # When we try a frame that doesn't exist, we know we have to start over from zero
+			self._num = 0
+		self.root.after(int(self.delay*1000), self.update)
+
+	def start_thread(self):
+		""" This starts the thread that runs the animation, if we are using a threaded approach """
+		from threading import Thread  # We only import the module if we need it
+		self._animation_thread = Thread()
+		self._animation_thread = Thread(target=self._animate_thread).start()  # Forks a thread for the animation
+
+	def stop_thread(self):
+		""" This stops the thread that runs the animation, if we are using a threaded approach """
 		self.stop = True
 
-	def _animate(self):
+	def _animate_thread(self):
+		""" Updates animation, if it is running as a separate thread """
 		while self.stop is False:  # Normally this would block mainloop(), but not here, as this runs in separate thread
 			try:
 				time.sleep(self.delay)
