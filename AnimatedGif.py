@@ -39,6 +39,10 @@ class AnimatedGif(tk.Label):
 		self.configure(image=self.gif)
 		self._num = 1  # We show the first frame when we start(), so when we animate the next frame is 1, not 0
 
+	def stop(self):
+		""" This stops the after loop that runs the animation, if we are using the after() approach """
+		self.stop = True
+
 	def update(self):
 		try:
 			self.gif = tk.PhotoImage(file=self.gif_file, format='gif -index {}'.format(self._num))  # Looping through the frames
@@ -46,7 +50,8 @@ class AnimatedGif(tk.Label):
 			self._num += 1
 		except tk.TclError:  # When we try a frame that doesn't exist, we know we have to start over from zero
 			self._num = 0
-		self.root.after(int(self.delay*1000), self.update)
+		if not self.stop:    # If the stop flag is set, we don't repeat
+			self.root.after(int(self.delay*1000), self.update)
 
 	def start_thread(self):
 		""" This starts the thread that runs the animation, if we are using a threaded approach """
