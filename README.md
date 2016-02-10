@@ -1,7 +1,5 @@
 #AnimatedGIF
-### - a Python class for animating multi-frame GIFs in separate thread
-==============================================================================
-
+### - a Python class for animating GIFs using threading in tkinter
 A very simple class (subclass of tkinter.Label) that displays an animated GIF in 
 a label and runs the animation in a separate thread. Written in Python3 but should work
 for Python2 as well (untested).
