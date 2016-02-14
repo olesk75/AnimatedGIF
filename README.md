@@ -47,4 +47,4 @@ There is a slightly more complex solution though, which involves [running all UI
 
 Of course, the simple way of doing it is using the non-threaded `stop` and `start` methods, which uses an "after()-loop", but in some cases, especially where the program is busy, the animation can get very choppy, as `after()` does not guarantee timely execution. Which is fine in some cases and not in others. Use either approach as you see fit.
 
-Personally, I've tended to let the animated gif run in a loop with and update(), and let the task I am waiting for run in a thread. This usually works better than putting the animation in a thread if the task isn't making updates to the window.
+Personally, I've tended to let the animated gif run in a loop with `update()` and `update_idletasks()`, and let the task I am waiting for run in a thread. This usually works better than putting the animation in a thread, at least if the task isn't making updates to the window.
