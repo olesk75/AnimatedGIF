@@ -1,9 +1,7 @@
 """ AnimatedGIF - a class to show an animated gif without blocking the tkinter mainloop()
 
 Copyright (c) 2016 Ole Jakob Skjelten <olesk@pvv.org>
-
-Released under the terms of the GNU General Public License, version 3
-(https://gnu.org/licenses/gpl.html)
+Released under the terms of the MIT license (https://opensource.org/licenses/MIT) as described in LICENSE.md
 
 """
 import time
