@@ -1,4 +1,4 @@
-#AnimatedGIF
+# AnimatedGIF
 ### - a Python class for animating GIFs in tkinter 
 A very simple class (subclass of tkinter.Label) that displays an animated GIF in 
 a label and either runs the animation in a separate thread or using tkinter's `after()`. Written in Python3 but should work
@@ -8,7 +8,7 @@ This allows using animated GIFs together with a normal tkinter mainloop() withou
 Perfect for showing small animated "please wait"/"working"/"downloading" icons while doing other tasks.
 
 *I recommend trying the non-threaded approach first. If you have stuttering in your animation, try the threaded approach*
-######Example usage (no threads):
+###### Example usage (no threads):
 
 ```python
 
@@ -21,7 +21,7 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
     lbl_with_my_gif.stop()  # Setting stop flag, which ends the update loop (animation)
 ```
 
-######Example usage (threading - but not recommended see below):
+###### Example usage (threading - but not recommended see below):
 
 ```python
 
@@ -39,7 +39,7 @@ for usage together with mainloop(), which I guess a lot of people, myself includ
 
 If you test this with Python2, let me know if it works ;)
 
-##Known issues
+## Known issues
 
 If you are using the threaded aproach and get the `"RuntimeError: main thread is not in main loop"` error, you're experiencing a [known problem with tkinter] (http://stackoverflow.com/questions/14694408/runtimeerror-main-thread-is-not-in-main-loop). Unfortunately, tkinter is not really thread safe. You can replace tkinter with [mtTkinter](http://tkinter.unpythonic.net/wiki/mtTkinter), but in my experience, whether or not this becomes a problem varies from case to case. It seems that if your GIF animation thread makes the main tkinter thread time out, this error occurs. This isn't really unique to Tkinter, but more a general issues with gui frameworks in Python.
 
