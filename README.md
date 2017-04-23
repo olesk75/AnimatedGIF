@@ -41,7 +41,7 @@ If you test this with Python2, let me know if it works ;)
 
 ## Known issues
 
-If you are using the threaded aproach and get the `"RuntimeError: main thread is not in main loop"` error, you're experiencing a [known problem with tkinter] (http://stackoverflow.com/questions/14694408/runtimeerror-main-thread-is-not-in-main-loop). Unfortunately, tkinter is not really thread safe. You can replace tkinter with [mtTkinter](http://tkinter.unpythonic.net/wiki/mtTkinter), but in my experience, whether or not this becomes a problem varies from case to case. It seems that if your GIF animation thread makes the main tkinter thread time out, this error occurs. This isn't really unique to Tkinter, but more a general issues with gui frameworks in Python.
+If you are using the threaded aproach and get the `"RuntimeError: main thread is not in main loop"` error, you're experiencing a [known problem with tkinter](http://stackoverflow.com/questions/14694408/runtimeerror-main-thread-is-not-in-main-loop). Unfortunately, tkinter is not really thread safe. You can replace tkinter with [mtTkinter](http://tkinter.unpythonic.net/wiki/mtTkinter), but in my experience, whether or not this becomes a problem varies from case to case. It seems that if your GIF animation thread makes the main tkinter thread time out, this error occurs. This isn't really unique to Tkinter, but more a general issues with gui frameworks in Python.
 
 The "correct" way of using this class is to run a `update()` and `update_idletasks()` loop while the task you are waiting for run in a thread. This usually works better than putting the animation in a thread, at least if the task isn't making updates to the window.
 
