@@ -15,8 +15,8 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
     from AnimatedGIF import *
   
     lbl_with_my_gif = AnimatedGif(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
-  	lbl_with_my_gif.pack()  # Packing the label with the animated gif (grid works just as well)
-  	lbl_with_my_gif.start()  # Shows gif at first frame and we are ready to go
+    lbl_with_my_gif.pack()  # Packing the label with the animated gif (grid works just as well)
+    lbl_with_my_gif.start()  # Shows gif at first frame and we are ready to go
   		...
     lbl_with_my_gif.stop()  # Setting stop flag, which ends the update loop (animation)
 ```
@@ -28,8 +28,8 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
     from AnimatedGIF import *
   
     lbl_with_my_gif = AnimatedGif(parent, 'my_logo.gif', 0.04)  # (tkinter.parent, filename, delay between frames)
-  	lbl_with_my_gif.pack()  # Packing the label with the animated gif (grid works just as well)
-  	lbl_with_my_gif.start_thread()  # Spawn thread which updates animation
+    lbl_with_my_gif.pack()  # Packing the label with the animated gif (grid works just as well)
+    lbl_with_my_gif.start_thread()  # Spawn thread which updates animation
   		...
     lbl_with_my_gif.stop_thread()  # Setting stop flag, which ends the animation
 ```
