@@ -1,8 +1,7 @@
 # AnimatedGIF
 ### - a Python class for animating GIFs in tkinter 
 A very simple class (subclass of tkinter.Label) that displays an animated GIF in 
-a label and either runs the animation in a separate thread or using tkinter's `after()`. Written in Python3 but should work
-for Python2 as well (untested).
+a label and either runs the animation in a separate thread or using tkinter's `after()`. Written in Python3 and tested successfully on 2.7 (thanks to @brenden-t-r)
 
 This allows using animated GIFs together with a normal tkinter mainloop() without blocking, but with caveats (see below)
 Perfect for showing small animated "please wait"/"working"/"downloading" icons while doing other tasks.
