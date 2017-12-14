@@ -36,8 +36,6 @@ Perfect for showing small animated "please wait"/"working"/"downloading" icons w
 I made this after seeing a whole lot of questions on StackExchange on how to do this, but no real working solutions that allows
 for usage together with mainloop(), which I guess a lot of people, myself included, need.
 
-If you test this with Python2, let me know if it works ;)
-
 ## Known issues
 
 If you are using the threaded aproach and get the `"RuntimeError: main thread is not in main loop"` error, you're experiencing a [known problem with tkinter](http://stackoverflow.com/questions/14694408/runtimeerror-main-thread-is-not-in-main-loop). Unfortunately, tkinter is not really thread safe. You can replace tkinter with [mtTkinter](http://tkinter.unpythonic.net/wiki/mtTkinter), but in my experience, whether or not this becomes a problem varies from case to case. It seems that if your GIF animation thread makes the main tkinter thread time out, this error occurs. This isn't really unique to Tkinter, but more a general issues with gui frameworks in Python.
