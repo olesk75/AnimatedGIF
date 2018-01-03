@@ -4,6 +4,7 @@ Copyright (c) 2016 Ole Jakob Skjelten <olesk@pvv.org>
 Released under the terms of the MIT license (https://opensource.org/licenses/MIT) as described in LICENSE.md
 
 """
+import sys
 import time
 try:
 	import Tkinter as tk  # for Python2
@@ -69,3 +70,5 @@ class AnimatedGif(tk.Label):
 				self._num += 1
 			except tk.TclError:  # When we try a frame that doesn't exist, we know we have to start over from zero
 				self._num = 0
+			except RuntimeError:
+				sys.exit()
